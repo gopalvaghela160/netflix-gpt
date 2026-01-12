@@ -9,7 +9,11 @@
 - create react app
 - configure tailwind css
 - Header
+- Routing of App
 - Login Form
+- Sign Up Form
+- Form validation
+- what is useRef hook?  
 
 # Feactures
 
