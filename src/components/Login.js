@@ -1,6 +1,12 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
+import BGimage from "../images/1.jpg";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -9,8 +15,45 @@ const Login = () => {
   const password = useRef(null);
   const handleButtonClick = () => {
     const error = checkValidData(email.current.value, password.current.value);
-
     setErrorMessage(error);
+    if (error) return;
+    if (!isSignInForm) {
+      console.log("if condition is called");
+      // Sign Up Logic
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user, "falsdkfjas;dlfjasd;lfkjasdl;k");
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorMessage + "-- " + errorCode);
+        });
+    } else {
+      // Sign In Logic
+
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+    }
   };
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
@@ -18,11 +61,7 @@ const Login = () => {
   return (
     <>
       <Header />
-      <img
-        className="absolute"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/ce462eb6-4d7f-4c9a-9f61-93cb535a64fd/web/IN-en-20260105-TRIFECTA-perspective_5ec818ea-11f4-4bff-a409-8f36e9f9a1e2_large.jpg"
-        alt="logo"
-      />
+      <img className="absolute" src={BGimage} alt="logo" />
       <form
         onSubmit={(e) => e.preventDefault()}
         className="absolute w-3/12 p-11 mx-auto right-0 left-0 top-1/4 bg-black text-white rounded-lg bg-opacity-75"

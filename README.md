@@ -14,7 +14,9 @@
 - Sign Up Form
 - Form validation
 - what is useRef hook?  
-
+- Firebase setup
+- deploying our app to producation
+- Create SignUp User Account
 # Feactures
 
 - Login / Sign Up
@@ -32,3 +34,13 @@
 - NetflixGPT
   - Search Bar
   - Movie Suggestions .
+
+#
+
+
+
+npm install firebase
+npm install -g firebase-tools
+firebase login
+firebase init
+firebase deploy
