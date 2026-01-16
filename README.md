@@ -1,6 +1,6 @@
-# authnatication
+# authentication
 
-# protacted routes
+# protected routes
 
 # form handling
 
@@ -13,31 +13,29 @@
 - Login Form
 - Sign Up Form
 - Form validation
-- what is useRef hook?  
+- what is useRef hook?
 - Firebase setup
-- deploying our app to producation
+- deploying our app to production
 - Create SignUp User Account
-# Feactures
+
+# Features
 
 - Login / Sign Up
   - Sign In / Sign up Form
   - redirect to browse page
-- Brows (after authentication)
-
+- Browse (after authentication)
   - Header
   - Main Movie
-    - Tailer in Background
+    - Trailer in Background
     - Title & Description
     - MovieSuggestions
-      - MovieLists \* N
+      - MovieLists * N
 
 - NetflixGPT
   - Search Bar
-  - Movie Suggestions .
+  - Movie Suggestions
 
 #
-
-
 
 npm install firebase
 npm install -g firebase-tools
