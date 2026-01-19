@@ -17,6 +17,12 @@
 - Firebase setup
 - deploying our app to production
 - Create SignUp User Account
+- implement SignIn user api
+- created redux store with user slice.
+- implemented sign Out 
+- updated profile 
+
+- Fetch from TMDB movies
 
 # Features
 
@@ -24,12 +30,13 @@
   - Sign In / Sign up Form
   - redirect to browse page
 - Browse (after authentication)
+
   - Header
   - Main Movie
     - Trailer in Background
     - Title & Description
     - MovieSuggestions
-      - MovieLists * N
+      - MovieLists \* N
 
 - NetflixGPT
   - Search Bar
