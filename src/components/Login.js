@@ -7,13 +7,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import BGimage from "../images/1.jpg";
-import { useNavigate } from "react-router-dom";
+import BgImage from "../images/1.jpg";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { PROFILE_IMG_URL } from "../utils/constants";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -37,7 +36,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/181314008?v=4",
+            photoURL: PROFILE_IMG_URL,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -49,14 +48,12 @@ const Login = () => {
                   photoURL: photoURL,
                 }),
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
             });
 
           console.log(user);
-          // navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -74,7 +71,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -89,7 +85,7 @@ const Login = () => {
   return (
     <>
       <Header />
-      <img className="absolute" src={BGimage} alt="logo" />
+      <img className="absolute" src={BgImage} alt="logo" />
       <form
         onSubmit={(e) => e.preventDefault()}
         className="absolute w-3/12 p-11 mx-auto right-0 left-0 top-1/4 bg-black text-white rounded-lg bg-opacity-75"
