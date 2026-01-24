@@ -1,5 +1,4 @@
 import { CircleQuestionMark, Play } from "lucide-react";
-import React from "react";
 
 function VideoTitle({ title, overview }) {
   return (
