@@ -84,3 +84,4 @@ if i remove strict mode than it print only one time.if i apply react.strictmode 
 it will just happen twice in your local. when you are developing your app.when you are doing npm run start it in your local project only tis will happen twice.
 but if you will make a build for production this will not happen twice .
 # why it happens twice tis the reason is that react does extra rendering of your components to check for some inconsistency between your calls.and this does and this only happens in development mode and it will throw an error if there is some inconsistency in your rendering cycle . 
+ 
